@@ -43,18 +43,6 @@ Response:
 </results>
 ```
 
-Database:
----------
-
- account_id | balance 
-------------+---------
-      12345 |  123.00
-(1 row)
-
- symbol | account_id | amount 
---------+------------+--------
- SYM    |      12345 |    456
-(1 row)
 
 
 
@@ -89,25 +77,6 @@ Response:
 <created sym = "BTC" id = "2000"/>
 </results>
 ```
-Database:
---------
-
- symbol | account_id | amount 
---------+------------+--------
- SYM    |      12345 |    456
- BTC    |       1000 |    500
- BTC    |       2000 |   2000
-(3 rows)
-
-
- account_id | balance 
-------------+---------
-      12345 |  123.00
-       1000 | 1000.00
-       2000 | 1000.00
-       3000 | 1000.00
-       4000 | 1000.00
-(5 rows)
 
 
 Test 3:
@@ -133,24 +102,6 @@ Response:
 </results>
 ```
 
- symbol | account_id | amount 
---------+------------+--------
- SYM    |      12345 |    456
- BTC    |       1000 |    500
- BTC    |       2000 |   2000
- SYM    |       2345 |    456
-(4 rows)
-
-
- account_id | balance 
-------------+---------
-      12345 |  123.00
-       1000 | 1000.00
-       2000 | 1000.00
-       3000 | 1000.00
-       4000 | 1000.00
-       2345 |    0.00
-(6 rows)
 
 Test 4:
 ------
@@ -214,31 +165,7 @@ Response:
 ```
 
 
-Database:
----------
 
- symbol | account_id | amount 
---------+------------+--------
- SYM    |      12345 |    456
- BTC    |       2000 |   2000
- SYM    |       2345 |    456
- BTC    |        345 |    456
- BTC    |       1000 |    700
- HTTC   |        345 |    456
- HTTC   |       1000 |    200
-
- account_id | balance 
-------------+---------
-      12345 |  123.00
-       1000 | 1000.00
-       2000 | 1000.00
-       3000 | 1000.00
-       4000 | 1000.00
-       2345 |    0.00
-       1300 |  100.00
-       1245 | 2334.00
-        345 |    0.00
-(9 rows)
 
 
 Now we run netcat with specific directions. We quit the program after running a particular test-case, so that the database tables are dropped:
@@ -326,39 +253,7 @@ Response:
 </results>
 ```
 
-Database:
---------
 
- account_id | balance  
-------------+----------
-        300 | 10000.00
-        400 | 10000.00
-        500 | 10000.00
-        600 | 10000.00
-        200 |     0.00
-        100 | 20000.00
-(6 rows)
-
- symbol | account_id | amount 
---------+------------+--------
- BTC    |        300 |    100
- BTC    |        400 |    100
- BTC    |        500 |    100
- BTC    |        600 |    100
- BTC    |        100 |      0
- BTC    |        200 |    600
-
-
-  account_id | order_id | symbol | amount | price_limit |    time    
-------------+----------+--------+--------+-------------+------------
-        200 |        1 | BTC    |    100 |          20 | 1554343345
-(1 row)
-
-
- symbol | id | price | amount |    time    
---------+----+-------+--------+------------
- BTC    |  1 |    20 |    500 | 1554343345
-(1 row)
 
 
 Test:
@@ -507,42 +402,6 @@ Response:
 ```
 
 
-Database:
---------
-
- account_id | balance  
-------------+----------
-        200 | 10000.00
-        300 |  8000.00
-        400 |  8000.00
-        500 |  8000.00
-        600 |  8000.00
-        100 | 20000.00
-(6 rows)
-
-
- symbol | account_id | amount 
---------+------------+--------
- BTC    |        100 |      0
- BTC    |        200 |    200
- BTC    |        300 |    200
- BTC    |        400 |    200
- BTC    |        500 |    200
- BTC    |        600 |    200
- (6 rows)
-
-  symbol | id | price | amount |    time    
---------+----+-------+--------+------------
- BTC    |  1 |    20 |    100 | 1554344085
- BTC    |  2 |    20 |    100 | 1554344085
- BTC    |  3 |    20 |    100 | 1554344085
- BTC    |  4 |    20 |    100 | 1554344085
- BTC    |  5 |    20 |    100 | 1554344085
-(5 rows)
-
- account_id | order_id | symbol | amount | price_limit | time 
-------------+----------+--------+--------+-------------+------
-(0 rows)
 
 
 Test:
@@ -594,39 +453,6 @@ Response:
 </results>
 ```
 
-
-Database:
-
- account_id | order_id | symbol | amount | price_limit |    time    
-------------+----------+--------+--------+-------------+------------
-        200 |        0 | BTC    |   -100 |          20 | 1554344738
-(1 row)
-
-
- symbol | id | price | amount | time 
---------+----+-------+--------+------
-(0 rows)
-
- symbol | account_id | amount 
---------+------------+--------
- BTC    |        100 |    500
- BTC    |        300 |    100
- BTC    |        400 |    100
- BTC    |        500 |    100
- BTC    |        600 |    100
- BTC    |        200 |      0
-(6 rows)
-
-
- account_id | balance  
-------------+----------
-        100 | 10000.00
-        200 | 12000.00
-        300 | 10000.00
-        400 | 10000.00
-        500 | 10000.00
-        600 | 10000.00
-(6 rows)
 
 
 
