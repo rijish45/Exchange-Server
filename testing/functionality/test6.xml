@@ -1,0 +1,18 @@
+144
+<?xml version="1.0" encoding="UTF-8"?>
+<create>
+  <account id="100" balance="10000"/>
+  <account id="200" balance="12000"/>
+  <account id="300" balance="10000"/>
+  <account id="400" balance="10000"/>
+  <account id="500" balance="10000"/>
+  <account id="600" balance="10000"/>
+  <symbol sym="BTC"> 
+  <account id="100">500</account>
+  <account id="200">100</account>
+  <account id="300">100</account>
+  <account id="400">100</account>
+  <account id="500">100</account>
+  <account id="600">100</account>
+  </symbol>
+</create>
