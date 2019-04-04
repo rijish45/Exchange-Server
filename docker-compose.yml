@@ -1,0 +1,23 @@
+version : '2'
+
+services:
+  db:
+     image: postgres
+     environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: exchange_server
+     volumes:
+       - data-volume:/var/lib/postgresql/data
+  web:
+     build: ./server
+     command: bash -c "make && ./server"
+     volumes:
+        - ./server:/code
+     ports:
+        - "12345:12345"
+     depends_on:
+        - db
+volumes:
+    data-volume:
+   

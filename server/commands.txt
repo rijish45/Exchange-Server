@@ -1,0 +1,3 @@
+git push -u origin master # -u means we can simply type "git push" instead of "git push origin branch"
+lscpu # sockets * cores per sockets * threads = cpu 
+mv !(new) new
